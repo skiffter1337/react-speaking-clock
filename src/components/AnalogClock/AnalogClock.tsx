@@ -1,17 +1,18 @@
 import React, {useEffect, useRef} from 'react';
+import s from './AnalogClock.module.css'
 
-type AnalClockType = {
+type AnalogClockType = {
     clock: Date
 }
-const AnalogClock = (props: AnalClockType) => {
+const AnalogClock = (props: AnalogClockType) => {
     const canvasRef = useRef<HTMLCanvasElement>(null)
 
     useEffect(() => {
-
+        console.log('tick')
         const canvas = canvasRef.current;
-        if(canvas) {
+        if (canvas) {
             const ctx = canvas.getContext("2d")
-            if(ctx) {
+            if (ctx) {
                 const radius = canvas.width / 2;
 
 
@@ -22,6 +23,15 @@ const AnalogClock = (props: AnalClockType) => {
                     ctx.arc(radius, radius, radius - 5, 0, 2 * Math.PI);
                     ctx.stroke();
 
+                    ctx.font = "bold 20px Montserrat";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    for (let i = 1; i <= 12; i++) {
+                        const angle = (i - 3) * (Math.PI * 2) / 12;
+                        const x = radius + Math.cos(angle) * (radius - 30);
+                        const y = radius + Math.sin(angle) * (radius - 30);
+                        ctx.fillText(i.toString(), x, y);
+                    }
                     // Рисуем центр часов
                     ctx.beginPath();
                     ctx.arc(radius, radius, 5, 0, 2 * Math.PI);
@@ -29,9 +39,9 @@ const AnalogClock = (props: AnalClockType) => {
                     ctx.fill();
 
                     // Рисуем стрелки
-                    const hour = props.clock.getHours();
-                    const minute = props.clock.getMinutes();
-                    const second = props.clock.getSeconds();
+                    const hour = props.clock.getUTCHours();
+                    const minute = props.clock.getUTCMinutes();
+                    const second = props.clock.getUTCSeconds();
 
                     // Рисуем часовую стрелку
                     const hourAngle = (hour % 12) * 30 + (minute / 60) * 30;
@@ -45,7 +55,7 @@ const AnalogClock = (props: AnalClockType) => {
                     ctx.stroke();
 
                     // Рисуем минутную стрелку
-                    const minuteAngle = minute * 6;
+                    const minuteAngle = minute * 6 - 90;
                     const minuteRadians = minuteAngle * Math.PI / 180;
                     const minuteHandLength = radius * 0.7;
                     const minuteX = radius + minuteHandLength * Math.cos(minuteRadians);
@@ -56,7 +66,7 @@ const AnalogClock = (props: AnalClockType) => {
                     ctx.stroke();
 
                     // Рисуем секундную стрелку
-                    const secondAngle = second * 6;
+                    const secondAngle = second * 6 - 90;
                     const secondRadians = secondAngle * Math.PI / 180;
                     const secondHandLength = radius * 0.8;
                     const secondX = radius + secondHandLength * Math.cos(secondRadians);
@@ -69,9 +79,10 @@ const AnalogClock = (props: AnalClockType) => {
                 }
 
                 drawClock();
-            }}
+            }
+        }
     }, [props.clock]);
-    return  <canvas ref={canvasRef} width={200} height={200} />
+    return <canvas ref={canvasRef} width={200} height={200} className={s.analogClock}/>
 };
 
 export default AnalogClock;
