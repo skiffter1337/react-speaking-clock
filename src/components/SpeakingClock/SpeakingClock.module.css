@@ -1,8 +1,6 @@
 
-
-
 .clockBlock {
-    position: absolute;
+
     width: 1500px;
     height: 500px;
     margin: 50px 300px;
@@ -18,6 +16,7 @@
 
 
 .time {
+    margin-bottom: 100px;
 
     padding: 15px;
     display: flex;
@@ -33,18 +32,24 @@
 }
 
 .dateBlock {
-
+    margin-top: 200px;
+    position: absolute;
 }
 
 .date {
+    display: inline-block;
     color: #041e3a;
     background-color: white;
 }
+
 .switchSpan {
+    margin-top: 300px;
+    position: absolute;
     color: #041e3a;
     background-color: white;
 }
 
 .switch {
+
     background-color: white;
 }

@@ -2,13 +2,12 @@ import React, {useEffect, useRef} from 'react';
 import s from './AnalogClock.module.css'
 
 type AnalogClockType = {
-    clock: Date
+    currentTime: Date
 }
 const AnalogClock = (props: AnalogClockType) => {
     const canvasRef = useRef<HTMLCanvasElement>(null)
 
     useEffect(() => {
-        console.log('tick')
         const canvas = canvasRef.current;
         if (canvas) {
             const ctx = canvas.getContext("2d")
@@ -39,9 +38,9 @@ const AnalogClock = (props: AnalogClockType) => {
                     ctx.fill();
 
                     // Рисуем стрелки
-                    const hour = props.clock.getUTCHours();
-                    const minute = props.clock.getUTCMinutes();
-                    const second = props.clock.getUTCSeconds();
+                    const hour = props.currentTime.getUTCHours();
+                    const minute = props.currentTime.getUTCMinutes();
+                    const second = props.currentTime.getUTCSeconds();
 
                     // Рисуем часовую стрелку
                     const hourAngle = (hour % 12) * 30 + (minute / 60) * 30;
@@ -81,7 +80,7 @@ const AnalogClock = (props: AnalogClockType) => {
                 drawClock();
             }
         }
-    }, [props.clock]);
+    }, [props.currentTime]);
     return <canvas ref={canvasRef} width={200} height={200} className={s.analogClock}/>
 };
 
