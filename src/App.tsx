@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {SpeakingClock} from "./components/SpeakingClock";
+import {SpeakingClock} from "./components/SpeakingClock/SpeakingClock";
 
 function App() {
   return (
