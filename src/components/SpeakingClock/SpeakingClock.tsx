@@ -26,7 +26,7 @@ export const SpeakingClock = () => {
     console.log('tick')
 
     return (
-        <>
+        <div className={s.speakingClock}>
             <div className={s.clockBlock}>
                 {isAnalogClock
                     ?
@@ -43,6 +43,6 @@ export const SpeakingClock = () => {
                     <Switch onChange={onSwitchMode} className={s.switch} size={'small'}/>
                 </span>
             </div>
-        </>
+        </div>
     );
 };
