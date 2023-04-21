@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-speaking-clock/static/css/main.549db4d6.css",
-    "main.js": "/react-speaking-clock/static/js/main.fe68932f.js",
+    "main.js": "/react-speaking-clock/static/js/main.fa25c042.js",
     "static/js/787.28cb0dcd.chunk.js": "/react-speaking-clock/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/react-speaking-clock/index.html",
     "main.549db4d6.css.map": "/react-speaking-clock/static/css/main.549db4d6.css.map",
-    "main.fe68932f.js.map": "/react-speaking-clock/static/js/main.fe68932f.js.map",
+    "main.fa25c042.js.map": "/react-speaking-clock/static/js/main.fa25c042.js.map",
     "787.28cb0dcd.chunk.js.map": "/react-speaking-clock/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.549db4d6.css",
-    "static/js/main.fe68932f.js"
+    "static/js/main.fa25c042.js"
   ]
 }
