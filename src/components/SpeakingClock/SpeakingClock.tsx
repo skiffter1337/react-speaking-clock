@@ -17,7 +17,7 @@ export const SpeakingClock = () => {
         const intervalId = setInterval(() => {
             setCurrentTime(new Date())
             document.title = time
-        }, 1000)
+        }, 9000000001000)
 
         return () => clearInterval(intervalId)
     }, [currentTime])
@@ -32,7 +32,9 @@ export const SpeakingClock = () => {
                     ?
                     <AnalogClock currentTime={currentTime}/>
                     :
-                    <span className={s.time}>{time}</span>
+                    <div className={s.timeBlock}>
+                        <span className={s.time}>{time}</span>
+                    </div>
                 }
                 <div className={s.dateBlock}>
                     <span

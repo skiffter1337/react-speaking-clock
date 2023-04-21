@@ -19,8 +19,15 @@
 
 }
 
+.timeBlock {
+
+}
+
 .time {
-    margin-bottom: 100px;
+    position: absolute;
+margin-left: -180px;
+margin-top: -30px;
+
     font-size: 100px;
     color: #041e3a;
     background-color: white;
