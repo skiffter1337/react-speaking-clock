@@ -1,0 +1,16 @@
+@mixin flex($flex, $justify-content: null, $align-items: null, $direction: null) {
+  display: $flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $direction;
+}
+
+@mixin fontFamily($family: null, $weight: null, $size: null, $lineHeight: null, $color: null, $decoration: null, $transform: null) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineHeight;
+  color: $color;
+  text-decoration: $decoration;
+  text-transform: $transform;
+}

@@ -81,7 +81,11 @@ const AnalogClock = (props: AnalogClockType) => {
             }
         }
     }, [props.currentTime]);
-    return <canvas ref={canvasRef} width={200} height={200} className={s.analogClock}/>
+    return (
+    <div>
+        <canvas ref={canvasRef} width={200} height={200} className={s.analogClock}/>
+    </div>
+    )
 };
 
 export default AnalogClock;

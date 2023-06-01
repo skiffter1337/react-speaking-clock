@@ -1,0 +1,37 @@
+@import 'src/common/styles/sass/variables';
+@import 'src/common/styles/sass/mixins';
+
+.speakingClock {
+    min-height: 100vh;
+    padding: 100px 0;
+    position: relative;
+
+
+}
+
+.clockBlock {
+    background-color: transparent;
+    @include flex(flex, center, center, column);
+    gap: 30px;
+
+}
+
+.clocks {
+    position: absolute;
+    bottom: 50%;
+}
+
+
+.digitalClockTime {
+    font-size: 100px;
+    color: #041e3a;
+}
+
+.dateAndModeContainer {
+    position: absolute;
+    @include flex(flex, center, center, column);
+    gap: 10px;
+    bottom: 40%;
+}
+
+

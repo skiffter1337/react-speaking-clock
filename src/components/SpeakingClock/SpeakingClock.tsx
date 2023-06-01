@@ -1,7 +1,8 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import s from './SpeakingClock.module.css'
+import s from './SpeakingClock.module.scss'
 import AnalogClock from "../AnalogClock/AnalogClock";
-import Switch from "@material-ui/core/Switch";
+import { Switch } from '@mui/material';
+
 
 
 export const SpeakingClock = () => {
@@ -17,7 +18,7 @@ export const SpeakingClock = () => {
         const intervalId = setInterval(() => {
             setCurrentTime(new Date())
             document.title = time
-        }, 9000000001000)
+        }, 1000)
 
         return () => clearInterval(intervalId)
     }, [currentTime])
@@ -28,23 +29,30 @@ export const SpeakingClock = () => {
     return (
         <div className={s.speakingClock}>
             <div className={s.clockBlock}>
-                {isAnalogClock
-                    ?
-                    <AnalogClock currentTime={currentTime}/>
-                    :
-                    <div className={s.timeBlock}>
-                        <span className={s.time}>{time}</span>
-                    </div>
-                }
-                <div className={s.dateBlock}>
-                    <span
-                        className={s.date}>{`${currentTime.toLocaleString('en', {weekday: 'long'})} - ${currentTime.getDate()} ${currentTime.toLocaleString('en', {month: 'long'})} ${currentTime.getFullYear()}`}</span>
+
+                <div className={s.clocks}>
+                    {isAnalogClock
+                        ?
+                        <AnalogClock currentTime={currentTime}/>
+                        :
+                        <div>
+                            <span className={s.digitalClockTime}>{time}</span>
+                        </div>
+                    }
                 </div>
-                <span className={s.switchSpan}>
-                    Switch to change mode -
-                    <Switch onChange={onSwitchMode} className={s.switch} size={'small'}/>
-                </span>
+                <div className={s.dateAndModeContainer}>
+                    <div>
+                        <span>
+                            {`${currentTime.toLocaleString('en', {weekday: 'long'})} - ${currentTime.getDate()} ${currentTime.toLocaleString('en', {month: 'long'})} ${currentTime.getFullYear()}`}
+                        </span>
+                    </div>
+                    <div>
+                        Switch to change mode -
+                        <Switch onChange={onSwitchMode} size={'small'} color={'success'}/>
+                    </div>
+                </div>
             </div>
+
         </div>
     );
 };
